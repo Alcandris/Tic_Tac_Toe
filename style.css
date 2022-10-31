@@ -1,0 +1,95 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameEnd {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  color: white;
+  font-size: 2rem;
+}
+
+#gameEnd p,
+#gameEnd input {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#gameEnd p {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#countDisplay {
+  font-size: 3rem;
+  padding: 50px;
+}
+
+#gamearea {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#gamearea :nth-child(1),
+#gamearea :nth-child(2),
+#gamearea :nth-child(3) {
+  border-top: none;
+}
+#gamearea :nth-child(7),
+#gamearea :nth-child(8),
+#gamearea :nth-child(9) {
+  border-bottom: none;
+}
+#gamearea :nth-child(1),
+#gamearea :nth-child(4),
+#gamearea :nth-child(7) {
+  border-left: none;
+}
+#gamearea :nth-child(3),
+#gamearea :nth-child(6),
+#gamearea :nth-child(9) {
+  border-right: none;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  border: 1px black solid;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+#statusDisplay {
+  font-size: 1.3rem;
+  padding: 50px;
+}
