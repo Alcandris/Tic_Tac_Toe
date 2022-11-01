@@ -9,11 +9,35 @@
   </head>
   <body>
     <main>
+      <div id="formulaire">
+        <form>
+          <input
+            type="text"
+            id="playerOneName"
+            placeholder="Nom du joueur 1"
+            autocomplete="off"
+            minlength="3"
+            maxlength="4"
+          />
+          <input
+            type="text"
+            id="playerTwoName"
+            placeholder="Nom du joueur 2"
+            autocomplete="off"
+            minlength="3"
+            maxlength="4"
+          />
+          <input type="submit" value="Commencer !" />
+        </form>
+      </div>
       <div id="gameEnd">
         <p class="white" id="endGameStatus">...</p>
         <input type="submit" value="Recommencer" id="reloadGame" />
       </div>
-      <div id="countDisplay"></div>
+      <div class="display">
+        <div id="nameDisplay"></div>
+        <div id="countDisplay"></div>
+      </div>
       <div id="gamearea">
         <div id="c1" class="cell" data-cell></div>
         <div id="c2" class="cell" data-cell></div>
@@ -25,7 +49,7 @@
         <div id="c8" class="cell" data-cell></div>
         <div id="c9" class="cell" data-cell></div>
       </div>
-      <div id="statusDisplay">Le joueur 1 commence</div>
+      <div id="statusDisplay"></div>
     </main>
     <script src="./index.js"></script>
   </body>

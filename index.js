@@ -1,9 +1,12 @@
 //Variables et Constantes
-
+let nameOne = "";
+let nameTwo = "";
 const playerOne = "X";
 const playerTwo = "O";
-let playerturn = playerOne;
+const toast = Math.floor(Math.random() * 2);
+let playerturn = toast == 0 ? playerOne : playerTwo;
 const cells = document.querySelectorAll(".cell");
+const form = document.querySelector("form");
 
 let playerOneCount = 0;
 let playerTwoCount = 0;
@@ -22,21 +25,6 @@ const winningPatterns = [
 ];
 countDisplay.innerHTML = `${playerOneCount} : ${drawCount} : ${playerTwoCount} `;
 //FONCTIONS
-
-// function storeCount() {
-//   window.localStorage.Count = {
-//     playerOneCount: playerOneCount,
-//     drawCount: drawCount,
-//     playerTwoCount: playerTwoCount,
-//   };
-// }
-
-// function getCount() {
-//   playerOneCount = window.localStorage.Count.playerOneCount;
-//   playerTwoCount = window.localStorage.Count.playerTwoCount;
-//   drawCount = window.localStorage.Count.drawCount;
-// }
-// getCount();
 
 function jouer(e) {
   if (e.target.innerHTML == "") {
@@ -63,17 +51,17 @@ function gameStatus(status) {
   let updateStatus;
   switch (status) {
     case "O":
-      updateStatus = "Tour du joueur 1";
+      updateStatus = `Tour de ${nameOne} `;
       break;
     case "X":
-      updateStatus = "Tour du joueur 2";
+      updateStatus = `Tour de ${nameTwo} `;
       break;
     case "winsX":
-      updateStatus = "le joueur 1 gagne";
+      updateStatus = `${nameOne} gagne`;
       playerOneCount++;
       break;
     case "winsO":
-      updateStatus = "le joueur 2 gagne";
+      updateStatus = `${nameTwo} gagne`;
       playerTwoCount++;
       break;
     case "draw":
@@ -105,6 +93,21 @@ function endGame() {
   document.getElementById("gameEnd").style.display = "block";
 }
 
+function getName(e) {
+  e.preventDefault();
+  if (playerOneName.value != "" && playerTwoName.value != "") {
+    nameOne = playerOneName.value;
+    nameTwo = playerTwoName.value;
+    formulaire.style.display = "none";
+    nameDisplay.innerHTML = `${nameOne} : Nul: ${nameTwo} `;
+    if (playerturn == playerOne) {
+      statusDisplay.innerHTML = `Tour de ${nameOne} `;
+    } else {
+      statusDisplay.innerHTML = `Tour de ${nameTwo} `;
+    }
+  }
+}
+
 //Ecoutes
 cells.forEach((cell) => {
   cell.addEventListener("click", jouer, { once: false });
@@ -114,7 +117,13 @@ reloadGame.addEventListener("click", () => {
   document.getElementById("gameEnd").style.display = "none";
   cells.forEach((cell) => {
     cell.innerHTML = "";
-    statusDisplay.innerHTML = "le joueur 1 commence";
+    if (playerturn == playerOne) {
+      statusDisplay.innerHTML = `Tour de ${nameOne} `;
+    } else {
+      statusDisplay.innerHTML = `Tour de ${nameTwo} `;
+    }
   });
   //   window.location.reload();
 });
+
+form.addEventListener("submit", getName);

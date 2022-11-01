@@ -19,7 +19,25 @@ main {
   align-items: center;
 }
 
-#gameEnd {
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+form input {
+  margin: 15px;
+  padding: 5px;
+  text-align: center;
+}
+#gameEnd,
+#formulaire {
   background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 0;
@@ -31,6 +49,11 @@ main {
   display: none;
   color: white;
   font-size: 2rem;
+}
+
+#formulaire {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 #gameEnd p,
@@ -48,7 +71,12 @@ main {
 }
 #countDisplay {
   font-size: 3rem;
-  padding: 50px;
+  padding: 0 50px 50px 50px;
+}
+
+#nameDisplay {
+  font-size: 1.5rem;
+  padding: 50px 50px 10px 50px;
 }
 
 #gamearea {
